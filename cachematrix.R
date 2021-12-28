@@ -6,7 +6,7 @@
 
 setwd('C:/Users/rubind1/Documents/Coursera-R')
 ## use random values between 0-100 to fill the matrix
-## I simply set the input x as a matrix
+## I simply set the input x as a matrixx
 ## and then set the solved value "s" as a null
 ## then I changed every reference to "mean" to "solve"
 makeCacheMatrix <- function(x = matrix(floor(runif(16, min=0, max=101)),4,4)) {
