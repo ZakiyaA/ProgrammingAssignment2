@@ -22,4 +22,17 @@ makeCacheMatrix <- function(x = matrix(floor(runif(16, min=0, max=101)),4,4)) {
        setInverse = setInverse,
        getInverse = getInverse)
 }
+##
+## Same here, changed "mean" to "solve" and "m" to "s"
+cacheInverse <- function(x, ...) {
+  s <- x$getInverse()
+  if(!is.null(s)) {
+    message("getting inversed matrix")
+    return(s)
+  }
+  data <- x$get()
+  s <- Inverse(data, ...)
+  x$setInverse(s)
+  s
+}
 
