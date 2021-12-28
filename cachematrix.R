@@ -8,7 +8,7 @@ setwd('C:/Users/rubind1/Documents/Coursera-R')
 ## use random values between 0-100 to fill the matrix
 ## I simply set the input x as a matrixx
 ## and then set the solved value "s" as a null
-## then I changed every reference to "mean" to "Inverse"
+## then I changed every reference to "mean" to "solve"
 makeCacheMatrix <- function(x = matrix(floor(runif(16, min=0, max=101)),4,4)) {
   s <- NULL
   set <- function(y) {
@@ -16,7 +16,7 @@ makeCacheMatrix <- function(x = matrix(floor(runif(16, min=0, max=101)),4,4)) {
     s <<- NULL
   }
   get <- function() x
-  setInverse <- function(Inverse) s <<- Inverse
+  setInverse <- function(solve) s <<- Inverse
   getInverse <- function() s
   list(set = set, get = get,
        setInverse = setInverse,
@@ -31,7 +31,7 @@ cacheInverse <- function(x, ...) {
     return(s)
   }
   data <- x$get()
-  s <- Inverse(data, ...)
+  s <- solve(data, ...)
   x$setInverse(s)
   s
 }
